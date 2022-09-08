@@ -1,0 +1,51 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    meta.helm.sh/release-name: mailu
+    meta.helm.sh/release-namespace: mailu-mailserver
+    pv.kubernetes.io/bound-by-controller: 'yes'
+  finalizers:
+    - kubernetes.io/pv-protection
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    release: mailu
+    heritage: Helm
+  name: mailu-storage
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 10Gi
+  nfs:
+    path: /data/share/k8s/mailu
+    server: 10.0.0.10
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: mailu-nfs
+  volumeMode: Filesystem
+
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    meta.helm.sh/release-name: mailu
+    meta.helm.sh/release-namespace: mailu-mailserver
+    pv.kubernetes.io/bind-completed: 'yes'
+  finalizers:
+    - kubernetes.io/pvc-protection
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    release: mailu
+  name: mailu-storage
+  namespace: mailu-mailserver
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  volumeMode: Filesystem
+  volumeName: mailu-storage
