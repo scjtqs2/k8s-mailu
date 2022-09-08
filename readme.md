@@ -5,7 +5,7 @@
 > 
 > 配置文件中的 `--pod-network-cidr` 为 `172.16.0.0/12,fc00::/48 `。支持ipv4、ipv6双栈。
 > 
-> 例如在家里树莓派上的k8s伤安装 邮局， 邮件数据、mysql等存储在 mycloud、群晖 等支持nfs的nas
+> 例如在家里树莓派上的k8s上安装 邮局， 邮件数据、mysql等存储在 mycloud、群晖 等支持nfs的nas
 ## 一、环境依赖
 1. kubernetes（kubelete、kubectl、kubeadm） >= 1.23 [安装参考](https://github.com/scjtqs2/kubernets-installer)
 2. helm >=v3.9     [安装参考](https://github.com/scjtqs2/kubernets-installer)
