@@ -12,8 +12,9 @@
 3. mysql >= 5.7
 4. cert-manager >= 1.19          [安装参考](https://github.com/scjtqs2/kubernets-installer)
 5. cert-manager-webhook-dnspod 插件 [安装参考](https://github.com/scjtqs2/kubernets-installer)
-6. nfs 后端存储
-7. 一个dns解析器（支持dnsesc，采用dot防污染的方式获取解析，邮件验证会用到）
+6. ip-masq-agent 使pod能访问ipv6公网 [安装参考](https://github.com/scjtqs2/kubernets-installer)
+7. nfs 后端存储
+8. 一个dns解析器（支持dnsesc，采用dot防污染的方式获取解析，邮件验证会用到）
 
 ## 二、配置环境
 1. 创建命名空间：
